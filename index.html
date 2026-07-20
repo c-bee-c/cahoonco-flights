@@ -494,6 +494,13 @@ input[type=date]::-webkit-calendar-picker-indicator {
   color: var(--ink-faint);
   margin-top: 2px;
 }
+.route-time-display {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-top: 3px;
+}
 
 .route-mid {
   flex: 2;
@@ -643,9 +650,9 @@ input[type=date]::-webkit-calendar-picker-indicator {
   box-shadow: 0 1px 4px var(--shadow-md);
   transition: left 0.4s ease;
 }
-.thermo-marker.cheap  { background: var(--green); }
-.thermo-marker.fair   { background: var(--gold); }
-.thermo-marker.pricey { background: var(--red); }
+.thermo-marker.cheap  { background: var(--ink); }
+.thermo-marker.fair   { background: var(--ink); }
+.thermo-marker.pricey { background: var(--ink); }
 .thermo-marker.unknown { background: var(--ink-faint); }
 
 .thermo-range-row {
@@ -713,6 +720,22 @@ input[type=date]::-webkit-calendar-picker-indicator {
   font-style: italic;
   font-family: var(--display);
   font-size: 16px;
+}
+.time-filter-btn {
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--white);
+  color: var(--ink-soft);
+  font-family: var(--body);
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.time-filter-btn.active {
+  border-color: var(--teal);
+  background: var(--teal-lt);
+  color: var(--teal);
 }
 .disclaimer {
   margin-top: 32px;
@@ -862,6 +885,17 @@ input[type=date]::-webkit-calendar-picker-indicator {
         </div>
       </div>
 
+      <!-- DEPARTURE TIME FILTER -->
+      <div class="form-divider"></div>
+      <div style="margin-bottom:16px">
+        <label class="field-label">Departure time</label>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button class="time-filter-btn active" data-start="0" data-end="12" onclick="toggleTimeFilter(this)">🌅 Morning (before noon)</button>
+          <button class="time-filter-btn active" data-start="12" data-end="18" onclick="toggleTimeFilter(this)">☀️ Afternoon (noon–6pm)</button>
+          <button class="time-filter-btn active" data-start="18" data-end="24" onclick="toggleTimeFilter(this)">🌙 Evening (after 6pm)</button>
+        </div>
+      </div>
+
       <button class="search-btn" id="search-btn" onclick="runSearch()">
         Find the best price →
       </button>
@@ -934,7 +968,7 @@ const CONFIG = {
   PROXY_URL: "/.netlify/functions/flights",
 
   // ── RATE LIMITING ───────────────────────────────────
-  MAX_CALLS_PER_SESSION: 25,   // 5x5 = 25 calls per search; ~1.5 full searches
+  MAX_CALLS_PER_SESSION: 40,   // 5x5 = 25 calls per search; ~1.5 full searches
   SEARCH_COOLDOWN_MS:    10000, // 10 seconds between searches
 };
 
@@ -1334,8 +1368,12 @@ async function runSearch() {
     // Sort by price ascending
     all.sort((a, b) => (a.price || 0) - (b.price || 0));
 
+    // Apply departure time filter
+    const timeWindows = getActiveTimeWindows();
+    const filtered = all.filter(f => flightMatchesTimeFilter(f, timeWindows));
+
     hideStatus();
-    renderResults(all.slice(0, 25));
+    renderResults(filtered.slice(0, 25));
 
   } catch(e) {
     const m = e.message || "";
@@ -1477,19 +1515,26 @@ function buildCard(r, i, progKey) {
   const retDate = document.getElementById("return-date").value || "";
   const adults  = document.getElementById("passengers").value || "1";
 
-  // Build Travelpayouts tracked search URL
-  // This opens Aviasales with the search pre-filled
-  // and tracks your affiliate commission on any booking
-  const searchParams = new URLSearchParams({
-    origin:       origin,
-    destination:  dest,
-    depart_date:  depDate,
-    return_date:  retDate,
-    adults:       adults,
-    currency:     "USD",
-    marker:       CONFIG.TP_MARKER,
-  });
-  const bookUrl = `https://www.travelpayouts.com/search/?${searchParams.toString()}`;
+  // Aviasales deep link format via Travelpayouts
+  // Format: aviasales.com/search/{ORIGIN}{MMDD}{DEST}{passengers}
+  // Example: aviasales.com/search/TYS0904ATH1
+  // Your Travelpayouts marker is appended for commission tracking.
+  //
+  // TO UPDATE YOUR MARKER:
+  //   Change CONFIG.TP_MARKER at the top of this file in GitHub.
+  //   Your marker is in Travelpayouts → click your name → My Profile.
+  function fmtAviasalesDate(dateStr) {
+    if (!dateStr) return "";
+    const parts = dateStr.split("-");
+    if (parts.length < 3) return "";
+    return parts[1] + parts[2]; // MMDD format
+  }
+  const depCode  = fmtAviasalesDate(depDate);
+  const retCode  = fmtAviasalesDate(retDate);
+  const baseUrl  = `https://www.aviasales.com/search/${origin}${depCode}${dest}${adults}`;
+  const bookUrl  = retDate
+    ? `${baseUrl}?return_date=${retCode}&marker=${CONFIG.TP_MARKER}&currency=USD`
+    : `${baseUrl}?marker=${CONFIG.TP_MARKER}&currency=USD`;
 
   // Segment rows
   const segRows = flights.map(f => `
@@ -1509,6 +1554,7 @@ function buildCard(r, i, progKey) {
             <div class="route-iata">${origin}</div>
             <div class="route-city">${aptNames[origin] || origin}</div>
             <div class="route-date">${fmtDate(depTime)}</div>
+            <div class="route-time-display">${fmtTime(depTime)}</div>
           </div>
           <div class="route-mid">
             <div class="route-mid-dur">${totalDur}</div>
@@ -1521,6 +1567,7 @@ function buildCard(r, i, progKey) {
             <div class="route-iata">${dest}</div>
             <div class="route-city">${aptNames[dest] || dest}</div>
             <div class="route-date">${fmtDate(arrTime)}</div>
+            <div class="route-time-display">${fmtTime(arrTime)}</div>
           </div>
         </div>
 
@@ -1573,7 +1620,11 @@ function fmtTime(str) {
 }
 function fmtDate(str) {
   if (!str) return "";
-  const d = new Date(str.split(" ")[0]);
+  const datePart = str.split(" ")[0]; // YYYY-MM-DD
+  const parts = datePart.split("-");
+  if (parts.length < 3) return str;
+  // Parse manually to avoid UTC→local timezone shift causing date to show one day early
+  const d = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
   if (isNaN(d)) return "";
   return d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
 }
@@ -1599,6 +1650,31 @@ function hideStatus() {
   document.getElementById("status-bar").className = "status-bar";
   document.getElementById("spinner").style.display = "none";
   document.getElementById("search-btn").disabled = false;
+}
+
+// ── TIME FILTER LOGIC ───────────────────────────────────────────────────────
+function toggleTimeFilter(btn) {
+  btn.classList.toggle("active");
+}
+
+function getActiveTimeWindows() {
+  const btns = document.querySelectorAll(".time-filter-btn.active");
+  return Array.from(btns).map(b => ({
+    start: parseInt(b.dataset.start),
+    end:   parseInt(b.dataset.end)
+  }));
+}
+
+function flightMatchesTimeFilter(flight, windows) {
+  if (!windows.length) return true; // no filter = show all
+  const firstSeg = flight.flights?.[0];
+  if (!firstSeg) return true;
+  const timeStr = firstSeg.departure_airport?.time || "";
+  if (!timeStr) return true;
+  const parts = timeStr.split(" ");
+  if (parts.length < 2) return true;
+  const hour = parseInt(parts[1].split(":")[0]);
+  return windows.some(w => hour >= w.start && hour < w.end);
 }
 
 // ── ESC closes dropdowns
