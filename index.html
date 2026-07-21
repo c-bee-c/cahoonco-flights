@@ -6,13 +6,6 @@
 <title>CahoonCo · Flight Finder</title>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   DESIGN TOKENS
-   Palette: warm paper white, deep ink navy,
-   signal teal, gold for price signals.
-   Not blue-on-dark — deliberately editorial,
-   like a premium travel magazine.
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 :root {
   --paper:      #F7F4EF;
   --paper-dark: #EDE9E2;
@@ -41,11 +34,8 @@
   --radius:     10px;
   --radius-lg:  16px;
 }
-
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 html { scroll-behavior: smooth; }
-
 body {
   background: var(--paper);
   color: var(--ink);
@@ -54,8 +44,6 @@ body {
   line-height: 1.65;
   min-height: 100vh;
 }
-
-/* ━━━━━━━━━━ HEADER ━━━━━━━━━━━━━━━━━━━━━━ */
 header {
   background: var(--ink);
   border-bottom: 3px solid var(--teal);
@@ -68,7 +56,6 @@ header {
   top: 0;
   z-index: 100;
 }
-
 .logo {
   font-family: var(--display);
   font-size: 20px;
@@ -76,12 +63,7 @@ header {
   letter-spacing: -0.3px;
 }
 .logo span { color: var(--teal); font-style: italic; }
-
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
+.header-right { display: flex; align-items: center; gap: 24px; }
 .header-tag {
   font-family: var(--mono);
   font-size: 10px;
@@ -99,20 +81,8 @@ header {
   border-radius: 4px;
   padding: 3px 8px;
 }
-
-/* ━━━━━━━━━━ LAYOUT ━━━━━━━━━━━━━━━━━━━━━━ */
-main {
-  max-width: 920px;
-  margin: 0 auto;
-  padding: 52px 24px 100px;
-}
-
-/* ━━━━━━━━━━ HERO ━━━━━━━━━━━━━━━━━━━━━━━━ */
-.hero {
-  margin-bottom: 44px;
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 36px;
-}
+main { max-width: 920px; margin: 0 auto; padding: 52px 24px 100px; }
+.hero { margin-bottom: 44px; border-bottom: 1px solid var(--border); padding-bottom: 36px; }
 .hero-kicker {
   font-family: var(--mono);
   font-size: 11px;
@@ -130,18 +100,8 @@ main {
   color: var(--ink);
   margin-bottom: 16px;
 }
-.hero h1 em {
-  font-style: italic;
-  color: var(--teal);
-}
-.hero-sub {
-  font-size: 16px;
-  color: var(--ink-soft);
-  max-width: 560px;
-  line-height: 1.7;
-}
-
-/* ━━━━━━━━━━ SEARCH CARD ━━━━━━━━━━━━━━━━━ */
+.hero h1 em { font-style: italic; color: var(--teal); }
+.hero-sub { font-size: 16px; color: var(--ink-soft); max-width: 560px; line-height: 1.7; }
 .search-card {
   background: var(--white);
   border: 1px solid var(--border);
@@ -150,7 +110,6 @@ main {
   overflow: hidden;
   margin-bottom: 32px;
 }
-
 .search-card-header {
   background: var(--ink);
   padding: 16px 28px;
@@ -158,20 +117,8 @@ main {
   align-items: center;
   justify-content: space-between;
 }
-.search-card-title {
-  font-family: var(--display);
-  font-size: 16px;
-  color: var(--white);
-  font-weight: 400;
-  font-style: italic;
-}
-.mode-toggle {
-  display: flex;
-  gap: 0;
-  border: 1px solid rgba(255,255,255,0.15);
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-}
+.search-card-title { font-family: var(--display); font-size: 16px; color: var(--white); font-weight: 400; font-style: italic; }
+.mode-toggle { display: flex; gap: 0; border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius-sm); overflow: hidden; }
 .mode-btn {
   padding: 6px 16px;
   font-family: var(--mono);
@@ -184,14 +131,8 @@ main {
   cursor: pointer;
   transition: all 0.15s;
 }
-.mode-btn.active {
-  background: var(--teal);
-  color: var(--white);
-}
-
+.mode-btn.active { background: var(--teal); color: var(--white); }
 .search-body { padding: 28px; }
-
-/* ━━━━━━━━━━ FIELD STYLES ━━━━━━━━━━━━━━━━ */
 .field-label {
   display: block;
   font-family: var(--mono);
@@ -201,11 +142,7 @@ main {
   color: var(--ink-soft);
   margin-bottom: 7px;
 }
-.field-label strong {
-  color: var(--teal);
-  font-weight: 500;
-}
-
+.field-label strong { color: var(--teal); font-weight: 500; }
 .airport-wrap { position: relative; }
 .apt-input {
   width: 100%;
@@ -219,14 +156,8 @@ main {
   outline: none;
   transition: border-color 0.15s, background 0.15s;
 }
-.apt-input:focus {
-  border-color: var(--teal);
-  background: var(--white);
-  box-shadow: 0 0 0 3px rgba(13,126,131,0.1);
-}
+.apt-input:focus { border-color: var(--teal); background: var(--white); box-shadow: 0 0 0 3px rgba(13,126,131,0.1); }
 .apt-input::placeholder { color: var(--ink-faint); }
-
-/* ━━━━━━━━━━ DROPDOWN ━━━━━━━━━━━━━━━━━━━━ */
 .apt-drop {
   position: absolute;
   top: calc(100% + 4px);
@@ -243,7 +174,6 @@ main {
 .apt-drop.open { display: block; }
 .apt-drop::-webkit-scrollbar { width: 3px; }
 .apt-drop::-webkit-scrollbar-thumb { background: var(--border); }
-
 .apt-item {
   padding: 10px 16px;
   cursor: pointer;
@@ -254,34 +184,12 @@ main {
   transition: background 0.1s;
 }
 .apt-item:last-child { border-bottom: none; }
-.apt-item:hover, .apt-item.selected {
-  background: var(--teal-lt);
-}
+.apt-item:hover, .apt-item.selected { background: var(--teal-lt); }
 .apt-name { font-size: 13px; color: var(--ink); }
 .apt-region { font-size: 11px; color: var(--ink-soft); margin-top: 1px; }
-.apt-code {
-  font-family: var(--mono);
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--teal);
-  flex-shrink: 0;
-  margin-left: 12px;
-}
-.apt-item.searching {
-  color: var(--ink-soft);
-  font-size: 13px;
-  cursor: default;
-  font-style: italic;
-}
-
-/* ━━━━━━━━━━ TAGS ━━━━━━━━━━━━━━━━━━━━━━━━ */
-.tag-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 10px;
-  min-height: 0;
-}
+.apt-code { font-family: var(--mono); font-size: 12px; font-weight: 500; color: var(--teal); flex-shrink: 0; margin-left: 12px; }
+.apt-item.searching { color: var(--ink-soft); font-size: 13px; cursor: default; font-style: italic; }
+.tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; min-height: 0; }
 .apt-tag {
   display: inline-flex;
   align-items: center;
@@ -299,21 +207,57 @@ main {
 }
 .apt-tag:hover { background: var(--teal-mid); }
 .apt-tag-x { opacity: 0.5; font-size: 12px; }
-.tag-limit {
-  font-family: var(--mono);
-  font-size: 10px;
-  color: var(--ink-faint);
-  padding: 4px 0;
-  align-self: center;
+.tag-limit { font-family: var(--mono); font-size: 10px; color: var(--ink-faint); padding: 4px 0; align-self: center; }
+.cluster-box {
+  margin-top: 12px;
+  padding: 14px 16px;
+  background: var(--paper);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-sm);
+  display: none;
 }
-
-/* ━━━━━━━━━━ FORM GRIDS ━━━━━━━━━━━━━━━━━━ */
+.cluster-box.open { display: block; }
+.cluster-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+.cluster-title { font-family: var(--mono); font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-soft); }
+.cluster-title strong { color: var(--teal); }
+.cluster-dismiss { font-family: var(--mono); font-size: 10px; color: var(--ink-faint); background: none; border: none; cursor: pointer; text-decoration: underline; }
+.cluster-list { display: flex; flex-direction: column; gap: 6px; }
+.cluster-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  background: var(--white);
+  border: 1px solid var(--border-lt);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+.cluster-item:hover { border-color: var(--teal-mid); }
+.cluster-item.checked { background: var(--teal-lt); border-color: var(--teal-mid); }
+.cluster-item input[type=checkbox] { width: 15px; height: 15px; accent-color: var(--teal); cursor: pointer; flex-shrink: 0; }
+.cluster-item-code { font-family: var(--mono); font-size: 12px; font-weight: 500; color: var(--ink); min-width: 34px; }
+.cluster-item-name { font-size: 12px; color: var(--ink-soft); flex: 1; }
+.cluster-item-drive { font-family: var(--mono); font-size: 10px; color: var(--ink-faint); white-space: nowrap; }
+.cluster-item-drive.unverified::after { content: " (est.)"; font-style: italic; }
+.cluster-empty { font-size: 12px; color: var(--ink-faint); font-style: italic; }
+.cluster-prompt-link {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.5px;
+  color: var(--teal);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+  margin-top: 8px;
+  display: inline-block;
+}
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
 .grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
-
 .field-group { margin-bottom: 0; }
-
 select, input[type=date], input[type=number] {
   width: 100%;
   padding: 11px 14px;
@@ -328,10 +272,7 @@ select, input[type=date], input[type=number] {
   appearance: none;
   -webkit-appearance: none;
 }
-select:focus, input[type=date]:focus, input[type=number]:focus {
-  border-color: var(--teal);
-  box-shadow: 0 0 0 3px rgba(13,126,131,0.1);
-}
+select:focus, input[type=date]:focus, input[type=number]:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(13,126,131,0.1); }
 select {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%236B7280'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
@@ -339,19 +280,8 @@ select {
   padding-right: 32px;
   cursor: pointer;
 }
-input[type=date]::-webkit-calendar-picker-indicator {
-  opacity: 0.4;
-  cursor: pointer;
-}
-
-/* Divider between form sections */
-.form-divider {
-  height: 1px;
-  background: var(--border-lt);
-  margin: 20px 0;
-}
-
-/* ━━━━━━━━━━ SEARCH BUTTON ━━━━━━━━━━━━━━━ */
+input[type=date]::-webkit-calendar-picker-indicator { opacity: 0.4; cursor: pointer; }
+.form-divider { height: 1px; background: var(--border-lt); margin: 20px 0; }
 .search-btn {
   width: 100%;
   padding: 15px;
@@ -367,39 +297,11 @@ input[type=date]::-webkit-calendar-picker-indicator {
   margin-top: 4px;
   letter-spacing: 0.3px;
 }
-.search-btn:hover:not(:disabled) {
-  background: #0A6B70;
-  box-shadow: 0 4px 20px rgba(13,126,131,0.3);
-  transform: translateY(-1px);
-}
-.search-btn:disabled {
-  opacity: 0.45;
-  cursor: not-allowed;
-  transform: none;
-}
-
-/* ━━━━━━━━━━ STATUS ━━━━━━━━━━━━━━━━━━━━━━ */
-.status-bar {
-  display: none;
-  align-items: center;
-  gap: 12px;
-  padding: 14px 18px;
-  border-radius: var(--radius-sm);
-  margin-bottom: 24px;
-  font-size: 13px;
-}
-.status-bar.loading {
-  display: flex;
-  background: var(--teal-lt);
-  border: 1px solid var(--teal-mid);
-  color: var(--teal);
-}
-.status-bar.error {
-  display: flex;
-  background: var(--red-lt);
-  border: 1px solid #FECACA;
-  color: var(--red);
-}
+.search-btn:hover:not(:disabled) { background: #0A6B70; box-shadow: 0 4px 20px rgba(13,126,131,0.3); transform: translateY(-1px); }
+.search-btn:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
+.status-bar { display: none; align-items: center; gap: 12px; padding: 14px 18px; border-radius: var(--radius-sm); margin-bottom: 24px; font-size: 13px; }
+.status-bar.loading { display: flex; background: var(--teal-lt); border: 1px solid var(--teal-mid); color: var(--teal); }
+.status-bar.error { display: flex; background: var(--red-lt); border: 1px solid #FECACA; color: var(--red); }
 .spinner {
   width: 14px; height: 14px;
   border: 2px solid rgba(13,126,131,0.25);
@@ -409,34 +311,9 @@ input[type=date]::-webkit-calendar-picker-indicator {
   flex-shrink: 0;
 }
 @keyframes spin { to { transform: rotate(360deg); } }
-
-/* ━━━━━━━━━━ RESULTS HEADER ━━━━━━━━━━━━━━ */
-.results-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--border);
-}
-.results-count {
-  font-family: var(--display);
-  font-size: 18px;
-  color: var(--ink);
-  font-style: italic;
-}
-.results-sort {
-  font-family: var(--mono);
-  font-size: 10px;
-  color: var(--ink-faint);
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-/* ━━━━━━━━━━ FLIGHT CARD ━━━━━━━━━━━━━━━━━ */
-/* SIGNATURE ELEMENT: the price thermometer bar
-   showing where today's price sits in historical
-   range. Horizontal, color-coded, unique. */
+.results-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+.results-count { font-family: var(--display); font-size: 18px; color: var(--ink); font-style: italic; }
+.results-sort { font-family: var(--mono); font-size: 10px; color: var(--ink-faint); letter-spacing: 1px; text-transform: uppercase; }
 .flight-card {
   background: var(--white);
   border: 1px solid var(--border);
@@ -446,84 +323,21 @@ input[type=date]::-webkit-calendar-picker-indicator {
   box-shadow: 0 1px 8px var(--shadow);
   transition: box-shadow 0.2s, transform 0.15s;
 }
-.flight-card:hover {
-  box-shadow: 0 4px 20px var(--shadow-md);
-  transform: translateY(-1px);
-}
-.flight-card.best {
-  border-color: var(--teal);
-  border-width: 2px;
-}
-
-.best-label {
-  background: var(--teal);
-  padding: 5px 20px;
-  font-family: var(--mono);
-  font-size: 9px;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: var(--white);
-}
-
+.flight-card:hover { box-shadow: 0 4px 20px var(--shadow-md); transform: translateY(-1px); }
+.flight-card.best { border-color: var(--teal); border-width: 2px; }
+.best-label { background: var(--teal); padding: 5px 20px; font-family: var(--mono); font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--white); }
 .card-body { padding: 20px 24px; }
-
-/* Route row */
-.route-row {
-  display: flex;
-  align-items: center;
-  margin-bottom: 18px;
-}
+.route-row { display: flex; align-items: center; margin-bottom: 18px; }
 .route-end { flex: 1; }
 .route-end.right { text-align: right; }
-.route-iata {
-  font-family: var(--display);
-  font-size: 34px;
-  font-weight: 700;
-  color: var(--ink);
-  line-height: 1;
-  letter-spacing: -1px;
-}
-.route-city {
-  font-size: 12px;
-  color: var(--ink-soft);
-  margin-top: 3px;
-}
-.route-date {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--ink-faint);
-  margin-top: 2px;
-}
-.route-time-display {
-  font-family: var(--mono);
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--ink);
-  margin-top: 3px;
-}
-
-.route-mid {
-  flex: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0 20px;
-  gap: 5px;
-}
-.route-mid-dur {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--ink-soft);
-  letter-spacing: 0.5px;
-}
-.route-mid-line {
-  width: 100%;
-  position: relative;
-  height: 1px;
-  background: var(--border);
-}
-.route-mid-line::before,
-.route-mid-line::after {
+.route-iata { font-family: var(--display); font-size: 34px; font-weight: 700; color: var(--ink); line-height: 1; letter-spacing: -1px; }
+.route-city { font-size: 12px; color: var(--ink-soft); margin-top: 3px; }
+.route-date { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); margin-top: 2px; }
+.route-time-display { font-family: var(--mono); font-size: 13px; font-weight: 500; color: var(--ink); margin-top: 3px; }
+.route-mid { flex: 2; display: flex; flex-direction: column; align-items: center; padding: 0 20px; gap: 5px; }
+.route-mid-dur { font-family: var(--mono); font-size: 11px; color: var(--ink-soft); letter-spacing: 0.5px; }
+.route-mid-line { width: 100%; position: relative; height: 1px; background: var(--border); }
+.route-mid-line::before, .route-mid-line::after {
   content: '';
   position: absolute;
   top: 50%;
@@ -542,48 +356,13 @@ input[type=date]::-webkit-calendar-picker-indicator {
   border-radius: 50%;
   background: var(--ink-faint);
 }
-.route-mid-stops {
-  font-family: var(--mono);
-  font-size: 10px;
-  color: var(--ink-soft);
-  letter-spacing: 1px;
-}
-
-/* Bottom row: price + thermometer + book */
-.card-footer {
-  padding-top: 16px;
-  border-top: 1px solid var(--border-lt);
-}
-
-.price-row {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  margin-bottom: 14px;
-  flex-wrap: wrap;
-  gap: 12px;
-}
+.route-mid-stops { font-family: var(--mono); font-size: 10px; color: var(--ink-soft); letter-spacing: 1px; }
+.card-footer { padding-top: 16px; border-top: 1px solid var(--border-lt); }
+.price-row { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 14px; flex-wrap: wrap; gap: 12px; }
 .price-block {}
-.price-cash {
-  font-family: var(--display);
-  font-size: 36px;
-  font-weight: 700;
-  color: var(--ink);
-  line-height: 1;
-  letter-spacing: -1px;
-}
-.price-pts {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--teal);
-  margin-top: 4px;
-}
-.price-airline {
-  font-size: 12px;
-  color: var(--ink-faint);
-  margin-top: 2px;
-}
-
+.price-cash { font-family: var(--display); font-size: 36px; font-weight: 700; color: var(--ink); line-height: 1; letter-spacing: -1px; }
+.price-pts { font-family: var(--mono); font-size: 11px; color: var(--teal); margin-top: 4px; }
+.price-airline { font-size: 12px; color: var(--ink-faint); margin-top: 2px; }
 .book-btn {
   padding: 10px 24px;
   background: var(--ink);
@@ -599,40 +378,15 @@ input[type=date]::-webkit-calendar-picker-indicator {
   transition: all 0.15s;
   white-space: nowrap;
 }
-.book-btn:hover {
-  background: var(--teal);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(13,126,131,0.25);
-}
-
-/* ── PRICE THERMOMETER (signature element) ── */
-.thermo-wrap {
-  margin-bottom: 6px;
-}
-.thermo-label-row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 5px;
-}
-.thermo-label {
-  font-family: var(--mono);
-  font-size: 10px;
-  color: var(--ink-faint);
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-.thermo-signal {
-  font-family: var(--mono);
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
+.book-btn:hover { background: var(--teal); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(13,126,131,0.25); }
+.thermo-wrap { margin-bottom: 6px; }
+.thermo-label-row { display: flex; justify-content: space-between; margin-bottom: 5px; }
+.thermo-label { font-family: var(--mono); font-size: 10px; color: var(--ink-faint); letter-spacing: 1px; text-transform: uppercase; }
+.thermo-signal { font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; }
 .thermo-signal.cheap  { color: var(--green); }
 .thermo-signal.fair   { color: var(--gold); }
 .thermo-signal.pricey { color: var(--red); }
 .thermo-signal.unknown { color: var(--ink-faint); }
-
 .thermo-bar {
   position: relative;
   height: 6px;
@@ -654,19 +408,8 @@ input[type=date]::-webkit-calendar-picker-indicator {
 .thermo-marker.fair   { background: var(--ink); }
 .thermo-marker.pricey { background: var(--ink); }
 .thermo-marker.unknown { background: var(--ink-faint); }
-
-.thermo-range-row {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 4px;
-}
-.thermo-range-val {
-  font-family: var(--mono);
-  font-size: 10px;
-  color: var(--ink-faint);
-}
-
-/* Serpapi price insight bar */
+.thermo-range-row { display: flex; justify-content: space-between; margin-top: 4px; }
+.thermo-range-val { font-family: var(--mono); font-size: 10px; color: var(--ink-faint); }
 .insight-bar {
   display: flex;
   align-items: flex-start;
@@ -681,8 +424,6 @@ input[type=date]::-webkit-calendar-picker-indicator {
   line-height: 1.5;
 }
 .insight-icon { flex-shrink: 0; font-size: 14px; }
-
-/* Segments expandable */
 .seg-toggle {
   background: none;
   border: none;
@@ -698,29 +439,11 @@ input[type=date]::-webkit-calendar-picker-indicator {
 .seg-toggle:hover { color: var(--ink-soft); }
 .seg-detail { display: none; margin-top: 10px; }
 .seg-detail.open { display: block; }
-.seg-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px 12px;
-  background: var(--paper);
-  border-radius: var(--radius-sm);
-  margin-bottom: 4px;
-  font-size: 12px;
-}
+.seg-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; background: var(--paper); border-radius: var(--radius-sm); margin-bottom: 4px; font-size: 12px; }
 .seg-flight { font-family: var(--mono); color: var(--teal); font-weight: 500; }
 .seg-route  { color: var(--ink-soft); }
 .seg-time   { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); }
-
-/* ━━━━━━━━━━ EMPTY / DISCLAIMER ━━━━━━━━━━ */
-.empty-state {
-  text-align: center;
-  padding: 60px 0;
-  color: var(--ink-faint);
-  font-style: italic;
-  font-family: var(--display);
-  font-size: 16px;
-}
+.empty-state { text-align: center; padding: 60px 0; color: var(--ink-faint); font-style: italic; font-family: var(--display); font-size: 16px; }
 .time-filter-btn {
   padding: 8px 14px;
   border-radius: var(--radius-sm);
@@ -732,22 +455,8 @@ input[type=date]::-webkit-calendar-picker-indicator {
   cursor: pointer;
   transition: all 0.15s;
 }
-.time-filter-btn.active {
-  border-color: var(--teal);
-  background: var(--teal-lt);
-  color: var(--teal);
-}
-.disclaimer {
-  margin-top: 32px;
-  padding: 16px 20px;
-  border: 1px solid var(--border-lt);
-  border-radius: var(--radius-sm);
-  font-size: 12px;
-  color: var(--ink-faint);
-  line-height: 1.7;
-}
-
-/* ━━━━━━━━━━ RESPONSIVE ━━━━━━━━━━━━━━━━━━ */
+.time-filter-btn.active { border-color: var(--teal); background: var(--teal-lt); color: var(--teal); }
+.disclaimer { margin-top: 32px; padding: 16px 20px; border: 1px solid var(--border-lt); border-radius: var(--radius-sm); font-size: 12px; color: var(--ink-faint); line-height: 1.7; }
 @media (max-width: 640px) {
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
   header { padding: 0 16px; }
@@ -757,12 +466,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   .route-iata { font-size: 26px; }
   .price-cash { font-size: 28px; }
 }
-
-/* ━━━━━━━━━━ ANIMATION ━━━━━━━━━━━━━━━━━━━ */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
+@keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 .fade-in { animation: fadeUp 0.25s ease forwards; }
 </style>
 </head>
@@ -778,14 +482,12 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
 <main>
 
-  <!-- HERO -->
   <div class="hero fade-in">
     <div class="hero-kicker">Built for travelers who don't live near a hub</div>
     <h1>Compare flights from<br><em>multiple airports</em> at once.</h1>
     <p class="hero-sub">Search TYS, CHA, BNA — or any combination — in a single query. See which nearby airport saves you the most on your trip, with points estimates alongside every price.</p>
   </div>
 
-  <!-- SEARCH CARD -->
   <div class="search-card fade-in">
     <div class="search-card-header">
       <div class="search-card-title">Search flights</div>
@@ -797,7 +499,6 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
     <div class="search-body">
 
-      <!-- AIRPORT ROW -->
       <div class="grid-2" style="margin-bottom:20px">
         <div class="field-group">
           <label class="field-label">Departure airports <strong>(up to 5)</strong></label>
@@ -811,6 +512,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
             <div class="apt-drop" id="origin-drop"></div>
           </div>
           <div class="tag-row" id="origin-tags"></div>
+          <div class="cluster-box" id="origin-cluster-box"></div>
         </div>
         <div class="field-group">
           <label class="field-label">Destination airports <strong>(up to 5)</strong></label>
@@ -824,12 +526,12 @@ input[type=date]::-webkit-calendar-picker-indicator {
             <div class="apt-drop" id="dest-drop"></div>
           </div>
           <div class="tag-row" id="dest-tags"></div>
+          <div class="cluster-box" id="dest-cluster-box"></div>
         </div>
       </div>
 
       <div class="form-divider"></div>
 
-      <!-- DATE ROW -->
       <div class="grid-2" style="margin-bottom:20px" id="date-row">
         <div class="field-group">
           <label class="field-label">Departure date</label>
@@ -841,7 +543,6 @@ input[type=date]::-webkit-calendar-picker-indicator {
         </div>
       </div>
 
-      <!-- FILTERS ROW -->
       <div class="grid-4" style="margin-bottom:20px">
         <div class="field-group">
           <label class="field-label">Passengers</label>
@@ -885,7 +586,6 @@ input[type=date]::-webkit-calendar-picker-indicator {
         </div>
       </div>
 
-      <!-- DEPARTURE TIME FILTER -->
       <div class="form-divider"></div>
       <div style="margin-bottom:16px">
         <label class="field-label">Departure time</label>
@@ -902,13 +602,11 @@ input[type=date]::-webkit-calendar-picker-indicator {
     </div>
   </div>
 
-  <!-- STATUS -->
   <div class="status-bar" id="status-bar">
     <div class="spinner" id="spinner" style="display:none"></div>
     <span id="status-msg"></span>
   </div>
 
-  <!-- RESULTS -->
   <div id="results-wrap" style="display:none">
     <div class="results-meta">
       <div class="results-count" id="results-count"></div>
@@ -916,92 +614,21 @@ input[type=date]::-webkit-calendar-picker-indicator {
     </div>
     <div id="results-list"></div>
     <div class="disclaimer">
-      Flight prices are sourced in real time via Google Flights data. Booking links are affiliate-tracked via Kiwi.com through Travelpayouts — booking through them supports CahoonCo at no cost to you. Points estimates use standard cent-per-point valuations and are not guaranteed redemption values. Historical price signals are sourced from Google Flights Price Insights.
+      Flight prices are sourced in real time via Google Flights data. Booking links are affiliate-tracked via Kiwi.com through Travelpayouts — booking through them supports CahoonCo at no cost to you. Points estimates use standard cent-per-point valuations and are not guaranteed redemption values. Historical price signals are sourced from Google Flights Price Insights. Drive times shown for nearby-airport suggestions are estimates pending verification — see CLUSTERS notes in source.
     </div>
   </div>
 
 </main>
 
 <script>
-// ════════════════════════════════════════════════════════
-//
-//  ██████╗ ██████╗ ███╗   ██╗███████╗██╗ ██████╗
-//  ██╔════╝██╔═══██╗████╗  ██║██╔════╝██║██╔════╝
-//  ██║     ██║   ██║██╔██╗ ██║█████╗  ██║██║  ███╗
-//  ██║     ██║   ██║██║╚██╗██║██╔══╝  ██║██║   ██║
-//  ╚██████╗╚██████╔╝██║ ╚████║██║     ██║╚██████╔╝
-//   ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝     ╚═╝ ╚═════╝
-//
-// ════════════════════════════════════════════════════════
-// STEP 1 — GET YOUR SERPAPI KEY
-//   a) Go to serpapi.com → sign up (100 free searches)
-//   b) Dashboard → API Key → copy it
-//   c) Paste it below as SERPAPI_KEY
-//
-// STEP 2 — GET YOUR TRAVELPAYOUTS MARKER
-//   a) Log into travelpayouts.com
-//   b) Click your name → My Profile
-//   c) Copy your marker number (e.g. 123456)
-//   d) Paste it below as TP_MARKER
-//
-// STEP 3 — NETLIFY PROXY (REQUIRED for Serpapi)
-//   Serpapi cannot be called directly from a browser
-//   because your API key would be visible to anyone.
-//   You need a Netlify serverless function as a proxy.
-//   See the NETLIFY PROXY section below for exact steps.
-// ════════════════════════════════════════════════════════
-
 const CONFIG = {
-  // ▼▼▼ REPLACE THIS with your Serpapi key ▼▼▼
   SERPAPI_KEY: "YOUR_SERPAPI_KEY_HERE",
-  // ▲▲▲ ─────────────────────────────────── ▲▲▲
-
-  // ▼▼▼ REPLACE THIS with your Travelpayouts marker ▼▼▼
   TP_MARKER: "704240",
-  // ▲▲▲ ─────────────────────────────────────────── ▲▲▲
-
-  // ── NETLIFY PROXY URL ──────────────────────────────
-  // After setting up the Netlify function (see below),
-  // replace this with your actual Netlify function URL.
-  // Format: https://your-site.netlify.app/.netlify/functions/flights
-  // While testing locally, use the direct Serpapi URL (key will be visible).
   PROXY_URL: "/.netlify/functions/flights",
-
-  // ── RATE LIMITING ───────────────────────────────────
-  MAX_CALLS_PER_SESSION: 40,   // 5x5 = 25 calls per search; ~1.5 full searches
-  SEARCH_COOLDOWN_MS:    10000, // 10 seconds between searches
+  MAX_CALLS_PER_SESSION: 40,
+  SEARCH_COOLDOWN_MS:    10000,
 };
 
-// ════════════════════════════════════════════════════════
-// NETLIFY PROXY SETUP (do this once)
-// ════════════════════════════════════════════════════════
-// 1. Create a folder called "netlify/functions" in your project
-// 2. Create a file: netlify/functions/flights.js
-// 3. Paste this code into it:
-//
-// exports.handler = async (event) => {
-//   const params = new URLSearchParams(event.queryStringParameters);
-//   params.set('api_key', process.env.SERPAPI_KEY);
-//   const url = `https://serpapi.com/search.json?${params}`;
-//   const res = await fetch(url);
-//   const data = await res.json();
-//   return {
-//     statusCode: 200,
-//     headers: { 'Access-Control-Allow-Origin': '*' },
-//     body: JSON.stringify(data),
-//   };
-// };
-//
-// 4. In Netlify dashboard → Site settings → Environment variables
-//    Add: SERPAPI_KEY = your actual key
-// 5. Deploy — your key is now server-side and hidden from users
-// ════════════════════════════════════════════════════════
-
-// ════════════════════════════════════════════════════════
-// POINTS VALUATIONS
-// Update cpp values as industry rates change.
-// Source: The Points Guy valuations (check monthly)
-// ════════════════════════════════════════════════════════
 const CPP = {
   chase_ur:    { name: "Chase UR",    cpp: 0.019 },
   amex_mr:     { name: "Amex MR",     cpp: 0.018 },
@@ -1012,17 +639,11 @@ const CPP = {
   southwest:    { name: "Southwest",   cpp: 0.014 },
 };
 
-// ════════════════════════════════════════════════════════
-// LOCAL AIRPORT LIST
-// Used for dropdown suggestions before typing.
-// Serpapi's Google Flights Autocomplete API can replace
-// this for live airport search — add as enhancement later.
-// ════════════════════════════════════════════════════════
 const AIRPORTS = [
-  // ── Regional (your core audience) ──
   {c:"TYS",n:"Knoxville",        r:"McGhee Tyson Airport · TN"},
   {c:"CHA",n:"Chattanooga",      r:"Lovell Field · TN"},
   {c:"BNA",n:"Nashville",        r:"Nashville International · TN"},
+  {c:"TRI",n:"Bristol/Tri-Cities", r:"Tri-Cities Regional · TN/VA"},
   {c:"GSP",n:"Greenville-Spartanburg", r:"GSP International · SC"},
   {c:"ROA",n:"Roanoke",          r:"Roanoke-Blacksburg Regional · VA"},
   {c:"RIC",n:"Richmond",         r:"Richmond International · VA"},
@@ -1032,6 +653,11 @@ const AIRPORTS = [
   {c:"PNS",n:"Pensacola",        r:"Pensacola International · FL"},
   {c:"ILM",n:"Wilmington",       r:"Wilmington International · NC"},
   {c:"MYR",n:"Myrtle Beach",     r:"Myrtle Beach International · SC"},
+  {c:"GSO",n:"Greensboro",       r:"Piedmont Triad International · NC"},
+  {c:"AVL",n:"Asheville",        r:"Asheville Regional · NC"},
+  {c:"BHM",n:"Birmingham",       r:"Birmingham-Shuttlesworth International · AL"},
+  {c:"SDF",n:"Louisville",       r:"Muhammad Ali International · KY"},
+  {c:"LEX",n:"Lexington",        r:"Blue Grass Airport · KY"},
   {c:"BZN",n:"Bozeman",          r:"Yellowstone International · MT"},
   {c:"GRR",n:"Grand Rapids",     r:"Gerald R. Ford International · MI"},
   {c:"CMH",n:"Columbus",         r:"John Glenn Columbus · OH"},
@@ -1046,7 +672,7 @@ const AIRPORTS = [
   {c:"OKC",n:"Oklahoma City",    r:"Will Rogers World · OK"},
   {c:"ABQ",n:"Albuquerque",      r:"Albuquerque International · NM"},
   {c:"ELP",n:"El Paso",          r:"El Paso International · TX"},
-  // ── Major hubs ──
+  {c:"MEM",n:"Memphis",          r:"Memphis International · TN"},
   {c:"ATL",n:"Atlanta",          r:"Hartsfield-Jackson · GA"},
   {c:"CLT",n:"Charlotte",        r:"Charlotte Douglas · NC"},
   {c:"IAD",n:"Washington DC",    r:"Dulles International · VA"},
@@ -1058,6 +684,7 @@ const AIRPORTS = [
   {c:"ORD",n:"Chicago",          r:"O'Hare International · IL"},
   {c:"MDW",n:"Chicago",          r:"Midway International · IL"},
   {c:"DFW",n:"Dallas",           r:"Dallas/Fort Worth · TX"},
+  {c:"DAL",n:"Dallas",           r:"Dallas Love Field · TX"},
   {c:"MIA",n:"Miami",            r:"Miami International · FL"},
   {c:"FLL",n:"Fort Lauderdale",  r:"Fort Lauderdale-Hollywood · FL"},
   {c:"BOS",n:"Boston",           r:"Logan International · MA"},
@@ -1066,6 +693,8 @@ const AIRPORTS = [
   {c:"SFO",n:"San Francisco",    r:"SFO International · CA"},
   {c:"PHX",n:"Phoenix",          r:"Phoenix Sky Harbor · AZ"},
   {c:"MCO",n:"Orlando",          r:"Orlando International · FL"},
+  {c:"TPA",n:"Tampa",            r:"Tampa International · FL"},
+  {c:"RSW",n:"Fort Myers",       r:"Southwest Florida International · FL"},
   {c:"LAS",n:"Las Vegas",        r:"Harry Reid International · NV"},
   {c:"IAH",n:"Houston",          r:"George Bush Intercontinental · TX"},
   {c:"HOU",n:"Houston",          r:"William P. Hobby · TX"},
@@ -1076,14 +705,55 @@ const AIRPORTS = [
   {c:"PDX",n:"Portland",         r:"Portland International · OR"},
   {c:"SLC",n:"Salt Lake City",   r:"Salt Lake City International · UT"},
   {c:"AUS",n:"Austin",           r:"Austin-Bergstrom International · TX"},
-  // ── International destinations ──
+  {c:"SAN",n:"San Diego",        r:"San Diego International · CA"},
+  {c:"STL",n:"St. Louis",        r:"Lambert International · MO"},
+  {c:"HNL",n:"Honolulu",         r:"Honolulu International · HI"},
+  {c:"PUJ",n:"Punta Cana",       r:"Punta Cana International · DR"},
+  {c:"SDQ",n:"Santo Domingo",    r:"Las Américas International · DR"},
+  {c:"STI",n:"Santiago",         r:"Cibao International · DR"},
+  {c:"MBJ",n:"Montego Bay",      r:"Sangster International · Jamaica"},
+  {c:"KIN",n:"Kingston",         r:"Norman Manley International · Jamaica"},
+  {c:"NAS",n:"Nassau",           r:"Lynden Pindling International · Bahamas"},
+  {c:"GCM",n:"Grand Cayman",     r:"Owen Roberts International · Cayman Islands"},
+  {c:"AUA",n:"Aruba",            r:"Queen Beatrix International"},
+  {c:"CUR",n:"Curaçao",          r:"Hato International"},
+  {c:"SJU",n:"San Juan",         r:"Luis Muñoz Marín International · Puerto Rico"},
+  {c:"STT",n:"St. Thomas",       r:"Cyril E. King Airport · USVI"},
+  {c:"STX",n:"St. Croix",        r:"Henry E. Rohlsen Airport · USVI"},
+  {c:"PLS",n:"Providenciales",   r:"Turks & Caicos International"},
+  {c:"BGI",n:"Barbados",         r:"Grantley Adams International"},
+  {c:"ANU",n:"Antigua",          r:"V.C. Bird International"},
+  {c:"SXM",n:"St. Maarten",      r:"Princess Juliana International"},
+  {c:"GND",n:"Grenada",          r:"Maurice Bishop International"},
+  {c:"UVF",n:"St. Lucia",        r:"Hewanorra International"},
+  {c:"SLU",n:"St. Lucia",        r:"George F. L. Charles Airport (Castries)"},
+  {c:"POS",n:"Port of Spain",    r:"Piarco International · Trinidad"},
+  {c:"PAP",n:"Port-au-Prince",   r:"Toussaint Louverture International · Haiti"},
+  {c:"PTP",n:"Guadeloupe",       r:"Pointe-à-Pitre International"},
+  {c:"FDF",n:"Martinique",       r:"Martinique Aimé Césaire International"},
+  {c:"CUN",n:"Cancún",           r:"Cancún International · Mexico"},
+  {c:"MEX",n:"Mexico City",      r:"Benito Juárez International"},
+  {c:"SJD",n:"Los Cabos",        r:"Los Cabos International"},
+  {c:"PVR",n:"Puerto Vallarta",  r:"Puerto Vallarta International"},
+  {c:"CZM",n:"Cozumel",          r:"Cozumel International"},
+  {c:"GDL",n:"Guadalajara",      r:"Guadalajara International"},
+  {c:"SAL",n:"San Salvador",     r:"San Salvador International · El Salvador"},
+  {c:"GUA",n:"Guatemala City",   r:"La Aurora International · Guatemala"},
+  {c:"SJO",n:"San José",         r:"Juan Santamaría International · Costa Rica"},
+  {c:"LIR",n:"Liberia",          r:"Guanacaste Airport · Costa Rica"},
+  {c:"PTY",n:"Panama City",      r:"Tocumen International · Panama"},
+  {c:"BZE",n:"Belize City",      r:"Philip S.W. Goldson International"},
+  {c:"RTB",n:"Roatán",           r:"Roatán International · Honduras"},
   {c:"ATH",n:"Athens",           r:"Greece · Eleftherios Venizelos"},
   {c:"JTR",n:"Santorini",        r:"Greece · Thira Airport"},
+  {c:"JMK",n:"Mykonos",          r:"Greece · Mykonos Island Airport"},
   {c:"CDG",n:"Paris",            r:"France · Charles de Gaulle"},
   {c:"ORY",n:"Paris",            r:"France · Orly"},
   {c:"LHR",n:"London",           r:"UK · Heathrow"},
   {c:"LGW",n:"London",           r:"UK · Gatwick"},
   {c:"FCO",n:"Rome",             r:"Italy · Fiumicino"},
+  {c:"MXP",n:"Milan",            r:"Italy · Malpensa"},
+  {c:"VCE",n:"Venice",           r:"Italy · Marco Polo"},
   {c:"BCN",n:"Barcelona",        r:"Spain · El Prat"},
   {c:"MAD",n:"Madrid",           r:"Spain · Adolfo Suárez Barajas"},
   {c:"AMS",n:"Amsterdam",        r:"Netherlands · Schiphol"},
@@ -1091,34 +761,78 @@ const AIRPORTS = [
   {c:"ZRH",n:"Zurich",           r:"Switzerland · Zurich Airport"},
   {c:"VIE",n:"Vienna",           r:"Austria · Vienna International"},
   {c:"PRG",n:"Prague",           r:"Czech Republic · Václav Havel"},
+  {c:"BUD",n:"Budapest",         r:"Hungary · Ferenc Liszt International"},
   {c:"DUB",n:"Dublin",           r:"Ireland · Dublin Airport"},
   {c:"CPH",n:"Copenhagen",       r:"Denmark · Kastrup"},
   {c:"ARN",n:"Stockholm",        r:"Sweden · Arlanda"},
+  {c:"OSL",n:"Oslo",             r:"Norway · Gardermoen"},
+  {c:"HEL",n:"Helsinki",         r:"Finland · Helsinki-Vantaa"},
+  {c:"WAW",n:"Warsaw",           r:"Poland · Chopin Airport"},
+  {c:"KEF",n:"Reykjavík",        r:"Iceland · Keflavík International"},
+  {c:"EDI",n:"Edinburgh",        r:"UK · Edinburgh Airport"},
+  {c:"MAN",n:"Manchester",       r:"UK · Manchester Airport"},
+  {c:"NCE",n:"Nice",             r:"France · Côte d'Azur"},
+  {c:"FRA",n:"Frankfurt",        r:"Germany · Frankfurt International"},
+  {c:"MUC",n:"Munich",           r:"Germany · Munich International"},
+  {c:"DXB",n:"Dubai",            r:"UAE · Dubai International"},
+  {c:"DOH",n:"Doha",             r:"Qatar · Hamad International"},
+  {c:"AUH",n:"Abu Dhabi",        r:"UAE · Zayed International"},
+  {c:"IST",n:"Istanbul",         r:"Turkey · Istanbul Airport"},
   {c:"NRT",n:"Tokyo",            r:"Japan · Narita"},
   {c:"HND",n:"Tokyo",            r:"Japan · Haneda"},
   {c:"ICN",n:"Seoul",            r:"South Korea · Incheon"},
   {c:"HKG",n:"Hong Kong",        r:"Hong Kong International"},
+  {c:"SIN",n:"Singapore",        r:"Changi Airport"},
   {c:"BKK",n:"Bangkok",          r:"Thailand · Suvarnabhumi"},
   {c:"DPS",n:"Bali",             r:"Indonesia · Ngurah Rai"},
+  {c:"KUL",n:"Kuala Lumpur",     r:"Malaysia · KL International"},
+  {c:"MNL",n:"Manila",           r:"Philippines · Ninoy Aquino International"},
+  {c:"DEL",n:"Delhi",            r:"India · Indira Gandhi International"},
+  {c:"BOM",n:"Mumbai",           r:"India · Chhatrapati Shivaji"},
   {c:"SYD",n:"Sydney",           r:"Australia · Kingsford Smith"},
   {c:"MEL",n:"Melbourne",        r:"Australia · Tullamarine"},
-  {c:"DXB",n:"Dubai",            r:"UAE · Dubai International"},
-  {c:"DOH",n:"Doha",             r:"Qatar · Hamad International"},
-  {c:"CUN",n:"Cancun",           r:"Mexico · Cancun International"},
-  {c:"MEX",n:"Mexico City",      r:"Mexico · Benito Juárez"},
-  {c:"GRU",n:"São Paulo",        r:"Brazil · Guarulhos"},
-  {c:"EZE",n:"Buenos Aires",     r:"Argentina · Ministro Pistarini"},
-  {c:"MBJ",n:"Montego Bay",      r:"Jamaica · Sangster International"},
-  {c:"NAS",n:"Nassau",           r:"Bahamas · Lynden Pindling"},
-  {c:"PUJ",n:"Punta Cana",       r:"Dominican Republic · Punta Cana Intl"},
+  {c:"AKL",n:"Auckland",         r:"New Zealand · Auckland International"},
+  {c:"NAN",n:"Nadi",             r:"Fiji · Nadi International"},
 ];
 
 const aptNames = {};
 AIRPORTS.forEach(a => { aptNames[a.c] = a.n; });
 
-// ════════════════════════════════════════════════════════
-// APP STATE
-// ════════════════════════════════════════════════════════
+const CLUSTERS = {
+  TYS: [
+    { code: "TRI", driveMin: 90,  verified: false },
+    { code: "CHA", driveMin: 105, verified: false },
+    { code: "BNA", driveMin: 165, verified: false },
+    { code: "AVL", driveMin: 75,  verified: false },
+    { code: "ATL", driveMin: 165, verified: false },
+  ],
+  CHA: [
+    { code: "TYS", driveMin: 105, verified: false },
+    { code: "BNA", driveMin: 120, verified: false },
+    { code: "ATL", driveMin: 120, verified: false },
+    { code: "HSV", driveMin: 130, verified: false },
+  ],
+  TRI: [
+    { code: "TYS", driveMin: 90,  verified: false },
+    { code: "AVL", driveMin: 80,  verified: false },
+    { code: "ROA", driveMin: 120, verified: false },
+  ],
+  BNA: [
+    { code: "TYS", driveMin: 165, verified: false },
+    { code: "CHA", driveMin: 120, verified: false },
+    { code: "HSV", driveMin: 105, verified: false },
+  ],
+};
+
+const SHOW_UNVERIFIED_CLUSTERS = true;
+
+function fmtDriveTime(min) {
+  const h = Math.floor(min / 60);
+  const m = min % 60;
+  if (h === 0) return `${m}m`;
+  return m === 0 ? `${h}h` : `${h}h ${m}m`;
+}
+
 let origins      = [];
 let dests        = [];
 let tripMode     = "roundtrip";
@@ -1131,16 +845,6 @@ function debounce(k, fn, ms) {
   debounceT[k] = setTimeout(fn, ms);
 }
 
-// ════════════════════════════════════════════════════════
-// AIRPORT SEARCH
-// Currently uses local list.
-// To add live search: replace localSearch() call with
-// a fetch to Serpapi's Google Flights Autocomplete API:
-// GET https://serpapi.com/search.json
-//   ?engine=google_flights_autocomplete
-//   &q={query}
-//   &api_key={key}
-// ════════════════════════════════════════════════════════
 function localSearch(q) {
   const lq = q.toLowerCase();
   if (!lq) return AIRPORTS.slice(0, 8);
@@ -1199,6 +903,7 @@ function pickApt(type, code, name) {
     aptNames[code] = name;
   }
   renderTags(type);
+  renderClusterBox(type);
   document.getElementById(`${type}-input`).value = "";
   debounce(`s-${type}`, () => {
     const drop = document.getElementById(`${type}-drop`);
@@ -1227,9 +932,79 @@ function renderTags(type) {
     + (arr.length >= 5 ? `<span class="tag-limit">Max 5 selected</span>` : "");
 }
 
-// ════════════════════════════════════════════════════════
-// MODE TOGGLE
-// ════════════════════════════════════════════════════════
+const clusterBoxOpen = { origin: false, dest: false };
+
+function collectClusterCandidates(type) {
+  const arr = type === "origin" ? origins : dests;
+  const seen = new Set(arr);
+  const candidates = [];
+  arr.forEach(code => {
+    const nearby = CLUSTERS[code] || [];
+    nearby.forEach(entry => {
+      if (seen.has(entry.code)) return;
+      if (!entry.verified && !SHOW_UNVERIFIED_CLUSTERS) return;
+      seen.add(entry.code);
+      candidates.push(entry);
+    });
+  });
+  return candidates.sort((a, b) => a.driveMin - b.driveMin);
+}
+
+function renderClusterBox(type) {
+  const box = document.getElementById(`${type}-cluster-box`);
+  const arr = type === "origin" ? origins : dests;
+
+  if (!arr.length) {
+    box.classList.remove("open");
+    box.innerHTML = "";
+    return;
+  }
+
+  const candidates = collectClusterCandidates(type);
+
+  if (!candidates.length) {
+    box.classList.remove("open");
+    box.innerHTML = "";
+    return;
+  }
+
+  if (!clusterBoxOpen[type]) {
+    box.classList.add("open");
+    box.innerHTML = `
+      <button class="cluster-prompt-link" onclick="toggleClusterBox('${type}')">
+        + add nearby airports (${candidates.length} within range)
+      </button>`;
+    return;
+  }
+
+  const arrSet = new Set(arr);
+  box.classList.add("open");
+  box.innerHTML = `
+    <div class="cluster-head">
+      <span class="cluster-title">Nearby <strong>${type === "origin" ? "departure" : "destination"}</strong> options</span>
+      <button class="cluster-dismiss" onclick="toggleClusterBox('${type}')">hide</button>
+    </div>
+    <div class="cluster-list">
+      ${candidates.map(entry => `
+        <label class="cluster-item ${arrSet.has(entry.code) ? "checked" : ""}"
+          onclick="event.preventDefault(); toggleClusterPick('${type}','${entry.code}')">
+          <input type="checkbox" ${arrSet.has(entry.code) ? "checked" : ""} readonly />
+          <span class="cluster-item-code">${entry.code}</span>
+          <span class="cluster-item-name">${aptNames[entry.code] || ""}</span>
+          <span class="cluster-item-drive ${entry.verified ? "" : "unverified"}">${fmtDriveTime(entry.driveMin)} drive</span>
+        </label>`).join("")}
+    </div>`;
+}
+
+function toggleClusterBox(type) {
+  clusterBoxOpen[type] = !clusterBoxOpen[type];
+  renderClusterBox(type);
+}
+
+function toggleClusterPick(type, code) {
+  pickApt(type, code, aptNames[code] || code);
+}
+
 function setMode(m) {
   tripMode = m;
   document.getElementById("btn-roundtrip").classList.toggle("active", m === "roundtrip");
@@ -1237,35 +1012,7 @@ function setMode(m) {
   document.getElementById("return-date-wrap").style.display = m === "roundtrip" ? "block" : "none";
 }
 
-// ════════════════════════════════════════════════════════
-// SERPAPI CALL
-// ════════════════════════════════════════════════════════
-// This function calls Serpapi's Google Flights API.
-// It goes through your Netlify proxy function so your
-// API key stays hidden from users.
-//
-// Serpapi parameters used:
-//   engine:          google_flights
-//   departure_id:    origin airport code (e.g. "TYS")
-//   arrival_id:      destination code (e.g. "ATH")
-//   outbound_date:   YYYY-MM-DD format
-//   return_date:     YYYY-MM-DD format (roundtrip only)
-//   type:            1 = roundtrip, 2 = one way
-//   travel_class:    1=economy 2=premium 3=business 4=first
-//   stops:           1=nonstop 2=1stop 3=2stops 0=any
-//   adults:          number of passengers
-//   currency:        "USD"
-//   hl:              "en"
-//
-// Returns: { best_flights, other_flights, price_insights }
-// price_insights contains the historical price signal
-// we use for the thermometer bar.
-// ════════════════════════════════════════════════════════
 async function serpSearch(origin, dest, departDate, returnDate, opts) {
-  // Serpapi parameter mapping:
-  // stops: 0=any, 1=nonstop only, 2=1 stop or fewer, 3=2 stops or fewer
-  // travel_class: 1=economy, 2=premium economy, 3=business, 4=first
-  // type: 1=roundtrip, 2=oneway
   const params = new URLSearchParams({
     engine:        "google_flights",
     departure_id:  origin,
@@ -1284,9 +1031,6 @@ async function serpSearch(origin, dest, departDate, returnDate, opts) {
     params.set("return_date", returnDate);
   }
 
-  // Always call the Netlify proxy.
-  // The proxy injects SERPAPI_KEY from Netlify environment variables.
-  // Your key is never exposed in this HTML file.
   const res = await fetch(`${CONFIG.PROXY_URL}?${params}`);
 
   if (!res.ok) {
@@ -1299,11 +1043,7 @@ async function serpSearch(origin, dest, departDate, returnDate, opts) {
   return data;
 }
 
-// ════════════════════════════════════════════════════════
-// MAIN SEARCH HANDLER
-// ════════════════════════════════════════════════════════
 async function runSearch() {
-  // Validate
   if (!origins.length) return showError("Add at least one departure airport.");
   if (!dests.length)   return showError("Add at least one destination.");
 
@@ -1313,7 +1053,6 @@ async function runSearch() {
   if (tripMode === "roundtrip" && !returnDate)
     return showError("Select a return date, or switch to one-way.");
 
-  // Rate limiting
   const now  = Date.now();
   const wait = CONFIG.SEARCH_COOLDOWN_MS - (now - lastSearch);
   if (lastSearch > 0 && wait > 0) {
@@ -1340,14 +1079,11 @@ async function runSearch() {
   try {
     const all = [];
 
-    // One call per origin × destination pair
     for (const o of origins) {
       for (const d of dests) {
         try {
           const data = await serpSearch(o, d, departDate, returnDate, opts);
 
-          // Serpapi returns best_flights and other_flights arrays.
-          // Merge them, tag each with origin/dest/insights.
           const flights = [
             ...(data.best_flights  || []),
             ...(data.other_flights || []),
@@ -1365,10 +1101,8 @@ async function runSearch() {
       }
     }
 
-    // Sort by price ascending
     all.sort((a, b) => (a.price || 0) - (b.price || 0));
 
-    // Apply departure time filter
     const timeWindows = getActiveTimeWindows();
     const filtered = all.filter(f => flightMatchesTimeFilter(f, timeWindows));
 
@@ -1388,9 +1122,6 @@ async function runSearch() {
   }
 }
 
-// ════════════════════════════════════════════════════════
-// RENDER RESULTS
-// ════════════════════════════════════════════════════════
 function renderResults(results) {
   const wrap  = document.getElementById("results-wrap");
   const list  = document.getElementById("results-list");
@@ -1416,7 +1147,6 @@ function buildCard(r, i, progKey) {
   const insights = r._insights;
   const flights  = r.flights || [];
 
-  // Route info from first and last segment
   const firstSeg = flights[0] || {};
   const lastSeg  = flights[flights.length - 1] || {};
   const depTime  = firstSeg.departure_airport?.time || "";
@@ -1425,20 +1155,14 @@ function buildCard(r, i, progKey) {
   const stops    = flights.length > 1 ? `${flights.length - 1} stop${flights.length > 2 ? "s" : ""}` : "Nonstop";
   const mainAirline = firstSeg.airline || "";
 
-  // Points estimate
   let ptsHtml = "";
   if (progKey && CPP[progKey]) {
     const pts = Math.round(price / CPP[progKey].cpp);
     ptsHtml = `<div class="price-pts">≈ ${pts.toLocaleString()} ${CPP[progKey].name} points</div>`;
   }
 
-  // Airline
   let airlineHtml = mainAirline ? `<div class="price-airline">${mainAirline}${flights.length > 1 ? " + connections" : ""}</div>` : "";
 
-  // ── THERMOMETER BAR ────────────────────────────────────
-  // Driven by Serpapi's price_insights data.
-  // price_level: "low" | "typical" | "high"
-  // typical_price_range: [low, high]
   let thermoHtml = "";
   if (insights) {
     const level = insights.price_level || "typical";
@@ -1446,7 +1170,6 @@ function buildCard(r, i, progKey) {
     const low   = range[0];
     const high  = range[1];
 
-    // Position marker: where does this price sit in the range?
     const pct = Math.min(100, Math.max(5,
       ((price - low) / (high - low)) * 100
     ));
@@ -1473,7 +1196,6 @@ function buildCard(r, i, progKey) {
         </div>
       </div>`;
 
-    // Add Google's own insight text if available
     if (insights.price_level === "high") {
       thermoHtml += `<div class="insight-bar">
         <span class="insight-icon">💡</span>
@@ -1487,47 +1209,15 @@ function buildCard(r, i, progKey) {
     }
   }
 
-  // ── BOOKING LINK ───────────────────────────────────────
-  // Deep links to Kiwi.com via Travelpayouts with:
-  //   - origin and destination pre-filled
-  //   - departure date pre-filled
-  //   - return date pre-filled (roundtrip)
-  //   - your affiliate marker embedded
-  //
-  // TO UPDATE YOUR MARKER:
-  //   Change CONFIG.TP_MARKER at the top of this file.
-  //
-  // ── BOOKING LINK ─────────────────────────────────────
-  // Travelpayouts search link format — passes origin,
-  // destination, and dates to Aviasales (Kiwi partner)
-  // with your affiliate marker embedded.
-  //
-  // HOW TO UPDATE YOUR MARKER:
-  //   Change CONFIG.TP_MARKER at the top of this file.
-  //   Your marker is in Travelpayouts → click your name → My Profile.
-  //
-  // FORMAT: aviasales.com search pre-filled with route + dates
-  //   origin      = IATA departure code (e.g. TYS)
-  //   destination = IATA arrival code (e.g. ATH)
-  //   depart_date = departure date YYYY-MM-DD
-  //   return_date = return date YYYY-MM-DD (blank = one way)
   const depDate = document.getElementById("depart-date").value || "";
   const retDate = document.getElementById("return-date").value || "";
   const adults  = document.getElementById("passengers").value || "1";
 
-  // Aviasales deep link format via Travelpayouts
-  // Format: aviasales.com/search/{ORIGIN}{MMDD}{DEST}{passengers}
-  // Example: aviasales.com/search/TYS0904ATH1
-  // Your Travelpayouts marker is appended for commission tracking.
-  //
-  // TO UPDATE YOUR MARKER:
-  //   Change CONFIG.TP_MARKER at the top of this file in GitHub.
-  //   Your marker is in Travelpayouts → click your name → My Profile.
   function fmtAviasalesDate(dateStr) {
     if (!dateStr) return "";
     const parts = dateStr.split("-");
     if (parts.length < 3) return "";
-    return parts[1] + parts[2]; // MMDD format
+    return parts[1] + parts[2];
   }
   const depCode  = fmtAviasalesDate(depDate);
   const retCode  = fmtAviasalesDate(retDate);
@@ -1536,7 +1226,6 @@ function buildCard(r, i, progKey) {
     ? `${baseUrl}?return_date=${retCode}&marker=${CONFIG.TP_MARKER}&currency=USD`
     : `${baseUrl}?marker=${CONFIG.TP_MARKER}&currency=USD`;
 
-  // Segment rows
   const segRows = flights.map(f => `
     <div class="seg-row">
       <span class="seg-flight">${f.flight_number || ""}</span>
@@ -1599,9 +1288,6 @@ function toggleSegs(btn) {
   btn.textContent = o ? "▲ Hide connecting flights" : "▼ Show connecting flights";
 }
 
-// ════════════════════════════════════════════════════════
-// UTILS
-// ════════════════════════════════════════════════════════
 function fmtDur(mins) {
   if (!mins) return "";
   const h = Math.floor(mins / 60);
@@ -1620,18 +1306,14 @@ function fmtTime(str) {
 }
 function fmtDate(str) {
   if (!str) return "";
-  const datePart = str.split(" ")[0]; // YYYY-MM-DD
+  const datePart = str.split(" ")[0];
   const parts = datePart.split("-");
   if (parts.length < 3) return str;
-  // Parse manually to avoid UTC→local timezone shift causing date to show one day early
   const d = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
   if (isNaN(d)) return "";
   return d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
 }
 
-// ════════════════════════════════════════════════════════
-// STATUS HELPERS
-// ════════════════════════════════════════════════════════
 function showLoading(msg) {
   const b = document.getElementById("status-bar");
   b.className = "status-bar loading";
@@ -1643,46 +1325,4 @@ function showError(msg) {
   const b = document.getElementById("status-bar");
   b.className = "status-bar error";
   document.getElementById("spinner").style.display = "none";
-  document.getElementById("status-msg").textContent = msg;
-  document.getElementById("search-btn").disabled = false;
-}
-function hideStatus() {
-  document.getElementById("status-bar").className = "status-bar";
-  document.getElementById("spinner").style.display = "none";
-  document.getElementById("search-btn").disabled = false;
-}
-
-// ── TIME FILTER LOGIC ───────────────────────────────────────────────────────
-function toggleTimeFilter(btn) {
-  btn.classList.toggle("active");
-}
-
-function getActiveTimeWindows() {
-  const btns = document.querySelectorAll(".time-filter-btn.active");
-  return Array.from(btns).map(b => ({
-    start: parseInt(b.dataset.start),
-    end:   parseInt(b.dataset.end)
-  }));
-}
-
-function flightMatchesTimeFilter(flight, windows) {
-  if (!windows.length) return true; // no filter = show all
-  const firstSeg = flight.flights?.[0];
-  if (!firstSeg) return true;
-  const timeStr = firstSeg.departure_airport?.time || "";
-  if (!timeStr) return true;
-  const parts = timeStr.split(" ");
-  if (parts.length < 2) return true;
-  const hour = parseInt(parts[1].split(":")[0]);
-  return windows.some(w => hour >= w.start && hour < w.end);
-}
-
-// ── ESC closes dropdowns
-["origin","dest"].forEach(t => {
-  document.getElementById(`${t}-input`).addEventListener("keydown", e => {
-    if (e.key === "Escape") closeDrop(t);
-  });
-});
-</script>
-</body>
-</html>
+  document.getElementById("status-msg").te
