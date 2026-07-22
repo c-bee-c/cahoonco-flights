@@ -794,7 +794,8 @@ function runSearch() {
   promise.then(function() {
     all.sort(function(a, b) { return (a.price || 0) - (b.price || 0); });
     var timeWindows = getActiveTimeWindows();
-    var maxTravel = parseInt(document.getElementById("max-travel-time").value) || 0;
+    var maxTravelHours = parseInt(document.getElementById("max-travel-time").value) || 0;
+    var maxTravel = maxTravelHours > 0 ? maxTravelHours * 60 : 0;
     var filtered = all.filter(function(f) {
       if (!flightMatchesTimeFilter(f, timeWindows)) return false;
       if (maxTravel && (f.total_duration || 0) > maxTravel) return false;
